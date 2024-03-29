@@ -24,27 +24,15 @@
         </tr>
         </thead>
         <tbody>
-        <tr>
-            <th scope="row"><s:property value="user.id" /></th>
-            <td><s:property value="user.userName" /></td>
-            <td><s:property value="user.name" /></td>
-            <td><s:property value="user.lastName" /></td>
-            <td><s:property value="user.role" /></td>
-        </tr>
-        <tr>
-            <th scope="row">2</th>
-            <td>Jacob</td>
-            <td>Thornton</td>
-            <td>@fat</td>
-            <td>@fat</td>
-        </tr>
-        <tr>
-            <th scope="row">3</th>
-            <td >Larry the Bird</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-            <td>@twitter</td>
-        </tr>
+        <s:iterator value="users" status="status">
+            <tr>
+                <th scope="row"><s:property value="id"/></th>
+                <td><s:property value="userName"/></td>
+                <td><s:property value="name"/></td>
+                <td><s:property value="lastName"/></td>
+                <td><s:property value="role"/></td>
+            </tr>
+        </s:iterator>
         </tbody>
     </table>
 </div>

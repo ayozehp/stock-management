@@ -7,12 +7,12 @@ public class User {
     private String lastName;
     private String role;
 
-    public User() {
-        id = "1";
-        userName = "ayoze";
-        name = "Ayoze";
-        lastName = "Hernandez Perez";
-        role = "ADMIN";
+    public User(String id, String userName, String name, String lastName, String role) {
+        this.id = id;
+        this.userName = userName;
+        this.name = name;
+        this.lastName = lastName;
+        this.role = role;
     }
 
     public String getId() {
