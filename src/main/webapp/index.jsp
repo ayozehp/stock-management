@@ -16,7 +16,7 @@
             <h1>Login</h1>
 
             <s:actionerror/>
-            <s:form action="home" method="post">
+            <s:form action="login" method="post">
                 <s:textfield name="userName" label="Usuario" />
                 <s:password name="password" label="Contraseña" />
                 <s:submit value="Entrar" />

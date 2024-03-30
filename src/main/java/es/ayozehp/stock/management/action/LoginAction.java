@@ -1,11 +1,16 @@
 package es.ayozehp.stock.management.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import org.apache.struts2.interceptor.SessionAware;
 
-public class LoginAction extends ActionSupport {
+import java.util.Map;
+
+public class LoginAction extends ActionSupport implements SessionAware {
 
     private String userName;
     private String password;
+
+    private Map<String, Object> session;
 
     public String getUserName() {
         return userName;
@@ -24,6 +29,12 @@ public class LoginAction extends ActionSupport {
     }
 
     public String execute() {
+        session.put("started", true);
         return SUCCESS;
+    }
+
+    @Override
+    public void setSession(Map<String, Object> map) {
+        session = map;
     }
 }
