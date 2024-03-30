@@ -11,15 +11,17 @@
 </head>
 <body>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <h1>Login</h1>
+    <div class="row">
+        <div class="col">
 
-            <s:actionerror/>
-            <s:form action="home" method="post">
-                <s:textfield name="userName" label="Usuario" />
-                <s:password name="password" label="Contraseña" />
-                <s:submit value="Entrar" />
+            <h1>Registro de usuario</h1>
+
+            <s:form action="createUser" method="post">
+                <s:textfield name="userName" label="Usuario"/>
+                <s:textfield name="name" label="Nombre"/>
+                <s:textfield name="lastName" label="Apellidos"/>
+                <s:textfield name="role" label="Rol"/>
+                <s:submit value="Submit"/>
             </s:form>
         </div>
     </div>

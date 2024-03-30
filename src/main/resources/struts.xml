@@ -2,18 +2,28 @@
 <!DOCTYPE struts PUBLIC
         "-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
         "http://struts.apache.org/dtds/struts-2.5.dtd">
-
 <struts>
-
     <constant name="struts.devMode" value="true"/>
 
     <package name="stock-management" extends="struts-default">
-        <action name="index">
+        <interceptors>
+            <interceptor name="login" class="es.ayozehp.stock.management.InterceptorLogin" />
+        </interceptors>
+
+        <action name="home" class="es.ayozehp.stock.management.action.LoginAction" method="execute">
             <result>/index.jsp</result>
         </action>
-        <action name="users" class="es.ayozehp.stock.management.action.UserAction" method="execute">
-            <result name="success">/users.jsp</result>
+
+        <action name="users" class="es.ayozehp.stock.management.action.ListUserAction" method="execute">
+            <result name="success">/users/list.jsp</result>
+        </action>
+
+        <action name="createUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="execute">
+            <result name="success">/users/create.jsp</result>
+        </action>
+
+        <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
+            <result name="success">/users/delete.jsp</result>
         </action>
     </package>
-
 </struts>

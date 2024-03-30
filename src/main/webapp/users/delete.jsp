@@ -11,16 +11,10 @@
 </head>
 <body>
 <div class="container">
-    <div class="row justify-content-center">
-        <div class="col-4">
-            <h1>Login</h1>
+    <div class="row">
+        <div class="col">
 
-            <s:actionerror/>
-            <s:form action="home" method="post">
-                <s:textfield name="userName" label="Usuario" />
-                <s:password name="password" label="Contraseña" />
-                <s:submit value="Entrar" />
-            </s:form>
+            <h1>Usuario eliminado</h1>
         </div>
     </div>
 </div>
