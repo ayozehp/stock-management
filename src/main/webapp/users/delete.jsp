@@ -14,6 +14,8 @@
     <div class="row">
         <div class="col">
             <h2>Usuario eliminado</h2>
+
+            <p><a href='<s:url action="users.action" />'>Ver todos los usuarios</a></p>
         </div>
     </div>
 </div>

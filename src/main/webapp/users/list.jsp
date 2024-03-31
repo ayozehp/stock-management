@@ -43,7 +43,7 @@
                             <td><s:property value="role"/></td>
                             <td>
                                 <s:form action="deleteUser" method="post">
-                                    <s:hidden name="userID" label="User ID"/>
+                                    <s:hidden name="id" label="User ID" value="%{id}"/>
                                     <s:submit value="Eliminar"/>
                                 </s:form>
                             </td>

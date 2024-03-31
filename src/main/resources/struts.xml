@@ -44,6 +44,7 @@
         </action>
 
         <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="login"/>
             <result name="success">/users/delete.jsp</result>
             <result name="error" type="redirectAction">home</result>
