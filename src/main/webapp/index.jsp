@@ -17,9 +17,9 @@
 
             <s:actionerror/>
             <s:form action="login" method="post">
-                <s:textfield name="userName" label="Usuario" />
-                <s:password name="password" label="Contraseña" />
-                <s:submit value="Entrar" />
+                <s:textfield name="userName" label="Usuario"/>
+                <s:password name="password" label="Contraseña"/>
+                <s:submit value="Entrar"/>
             </s:form>
         </div>
     </div>

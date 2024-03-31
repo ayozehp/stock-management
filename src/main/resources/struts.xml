@@ -4,6 +4,8 @@
         "http://struts.apache.org/dtds/struts-2.5.dtd">
 <struts>
     <constant name="struts.devMode" value="true"/>
+    <constant name="struts.enable.DynamicMethodInvocation" value="true"/>
+    <constant name="struts.mapper.action.prefix.enabled" value="true"/>
 
     <package name="stock-management" extends="struts-default">
         <interceptors>
@@ -28,12 +30,23 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="createUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="execute">
+        <action name="viewCreateUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="input">
+            <interceptor-ref name="login"/>
             <result name="success">/users/create.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="createUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="login"/>
+            <result name="success" type="redirectAction">users</result>
+            <result name="error" type="redirectAction">home</result>
         </action>
 
         <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
+            <interceptor-ref name="login"/>
             <result name="success">/users/delete.jsp</result>
+            <result name="error" type="redirectAction">home</result>
         </action>
     </package>
 </struts>

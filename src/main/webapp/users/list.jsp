@@ -14,37 +14,44 @@
     <div class="row">
         <div class="col">
 
-            <h1>Lista de usuarios</h1>
+            <h2>Lista de usuarios</h2>
 
-            <table class="table table-striped">
-                <thead>
-                <tr>
-                    <th scope="col">ID</th>
-                    <th scope="col">Usuario</th>
-                    <th scope="col">Nombre</th>
-                    <th scope="col">Apellidos</th>
-                    <th scope="col">Rol</th>
-                    <th scope="col">Acciones</th>
-                </tr>
-                </thead>
-                <tbody>
-                <s:iterator value="users" status="status">
+            <p><a class="btn btn-primary" href="<s:url action="viewCreateUser.action" />">Crear usuario</a></p>
+
+            <s:if test="users.size==0">
+                <p>No hay ningún usuario. Crea un nuevo usuario <a href='<s:url action="viewCreateUser.action" />'>aquí</a></p>
+            </s:if>
+            <s:else>
+                <table class="table table-striped">
+                    <thead>
                     <tr>
-                        <th scope="row"><s:property value="id"/></th>
-                        <td><s:property value="userName"/></td>
-                        <td><s:property value="name"/></td>
-                        <td><s:property value="lastName"/></td>
-                        <td><s:property value="role"/></td>
-                        <td>
-                            <s:form action="deleteUser" method="post">
-                                <s:hidden name="userID" label="User ID"/>
-                                <s:submit value="Eliminar"/>
-                            </s:form>
-                        </td>
+                        <th scope="col">ID</th>
+                        <th scope="col">Usuario</th>
+                        <th scope="col">Nombre</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Rol</th>
+                        <th scope="col">Acciones</th>
                     </tr>
-                </s:iterator>
-                </tbody>
-            </table>
+                    </thead>
+                    <tbody>
+                    <s:iterator value="users">
+                        <tr>
+                            <th scope="row"><s:property value="id"/></th>
+                            <td><s:property value="userName"/></td>
+                            <td><s:property value="name"/></td>
+                            <td><s:property value="lastName"/></td>
+                            <td><s:property value="role"/></td>
+                            <td>
+                                <s:form action="deleteUser" method="post">
+                                    <s:hidden name="userID" label="User ID"/>
+                                    <s:submit value="Eliminar"/>
+                                </s:form>
+                            </td>
+                        </tr>
+                    </s:iterator>
+                    </tbody>
+                </table>
+            </s:else>
         </div>
     </div>
 </div>

@@ -13,14 +13,13 @@
 <div class="container">
     <div class="row">
         <div class="col">
+            <h2>Crear usuario</h2>
 
-            <h1>Registro de usuario</h1>
-
-            <s:form action="createUser" method="post">
-                <s:textfield name="userName" label="Usuario"/>
-                <s:textfield name="name" label="Nombre"/>
-                <s:textfield name="lastName" label="Apellidos"/>
-                <s:textfield name="role" label="Rol"/>
+            <s:form action="createUser">
+                <s:textfield name="user.userName" label="Usuario" class="form-control"/>
+                <s:textfield name="user.name" label="Nombre" class="form-control"/>
+                <s:textfield name="user.lastName" label="Apellidos" class="form-control"/>
+                <s:textfield name="user.role" label="Rol" class="form-control"/>
                 <s:submit value="Submit"/>
             </s:form>
         </div>

@@ -13,8 +13,7 @@
 <div class="container">
     <div class="row">
         <div class="col">
-
-            <h1>Usuario eliminado</h1>
+            <h2>Usuario eliminado</h2>
         </div>
     </div>
 </div>
