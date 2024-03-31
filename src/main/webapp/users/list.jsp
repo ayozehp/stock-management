@@ -10,16 +10,15 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
+<jsp:include page="../_navbar.jsp" />
+<div class="container pt-5">
     <div class="row">
         <div class="col">
-
             <h2>Lista de usuarios</h2>
 
-            <p><a class="btn btn-primary" href="<s:url action="viewCreateUser.action" />">Crear usuario</a></p>
-
             <s:if test="users.size==0">
-                <p>No hay ningún usuario. Crea un nuevo usuario <a href='<s:url action="viewCreateUser.action" />'>aquí</a></p>
+                <p>No hay ningún usuario. Crea un nuevo usuario <a
+                        href='<s:url action="viewCreateUser.action" />'>aquí</a></p>
             </s:if>
             <s:else>
                 <table class="table table-striped">
@@ -42,9 +41,9 @@
                             <td><s:property value="lastName"/></td>
                             <td><s:property value="role"/></td>
                             <td>
-                                <s:form action="deleteUser" method="post">
+                                <s:form action="deleteUser" method="post" theme="simple">
                                     <s:hidden name="id" label="User ID" value="%{id}"/>
-                                    <s:submit value="Eliminar"/>
+                                    <s:submit value="Eliminar" class="btn btn-primary btn-sm"/>
                                 </s:form>
                             </td>
                         </tr>
