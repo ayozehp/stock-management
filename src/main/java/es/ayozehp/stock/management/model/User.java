@@ -1,10 +1,26 @@
 package es.ayozehp.stock.management.model;
 
-public class User {
+import javax.persistence.*;
+import java.io.Serializable;
+
+@Entity
+@Table(name = "users")
+public class User implements Serializable {
+
+    @Id
+    @Column(name = "id")
     private String id;
+
+    @Column(name = "user_name")
     private String userName;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "last_name")
     private String lastName;
+
+    @Column(name = "role")
     private String role;
 
     public User(String id, String userName, String name, String lastName, String role) {
@@ -13,6 +29,9 @@ public class User {
         this.name = name;
         this.lastName = lastName;
         this.role = role;
+    }
+
+    public User() {
     }
 
     public String getId() {
