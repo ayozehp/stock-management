@@ -45,6 +45,11 @@
                                     <s:hidden name="id" label="User ID" value="%{id}"/>
                                     <s:submit value="Eliminar" class="btn btn-primary btn-sm"/>
                                 </s:form>
+
+                                <s:form action="viewEditUser" method="post" theme="simple">
+                                    <s:hidden name="userId" label="User ID" value="%{id}"/>
+                                    <s:submit value="Editar" class="btn btn-primary btn-sm"/>
+                                </s:form>
                             </td>
                         </tr>
                     </s:iterator>

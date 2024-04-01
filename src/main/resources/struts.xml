@@ -43,6 +43,13 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
+        <action name="viewEditUser" class="es.ayozehp.stock.management.action.EditUserAction" method="input">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="login"/>
+            <result name="success">/users/edit.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
         <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="login"/>
