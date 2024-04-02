@@ -50,6 +50,13 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
+        <action name="editUser" class="es.ayozehp.stock.management.action.EditUserAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="login"/>
+            <result name="success" type="redirectAction">users</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
         <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="login"/>

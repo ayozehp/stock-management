@@ -6,8 +6,6 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.UUID;
-
 public class EditUserAction extends ActionSupport {
 
     private String userId;
@@ -45,7 +43,16 @@ public class EditUserAction extends ActionSupport {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        session.saveOrUpdate(user);
+
+        User databaseUser = session.get(User.class, user.getId());
+        databaseUser.setUserName(user.getUserName());
+        databaseUser.setName(user.getName());
+        databaseUser.setLastName(user.getLastName());
+        databaseUser.setAdmin(user.isAdmin());
+        databaseUser.setWarehouse(user.isWarehouse());
+        databaseUser.setClient(user.isClient());
+        session.saveOrUpdate(databaseUser);
+
         session.getTransaction().commit();
         session.close();
 

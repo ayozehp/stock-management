@@ -16,8 +16,9 @@
         <div class="col">
             <h2>Editar usuario</h2>
 
-            <s:form action="createUser">
-                <s:textfield name="user.userName" label="Usuario" class="form-control" value="%{user.id}"/>
+            <s:form action="editUser.action">
+                <s:hidden name="user.id" label="ID" class="form-control" value="%{user.id}"/>
+                <s:textfield name="user.userName" label="Nombre de usuario" class="form-control" value="%{user.userName}"/>
                 <s:textfield name="user.name" label="Nombre" class="form-control" value="%{user.name}"/>
                 <s:textfield name="user.lastName" label="Apellidos" class="form-control" value="%{user.lastName}"/>
                 <s:checkbox name="user.admin" label="¿Es administrador?" class="form-check-input" value="%{user.admin}"/>
