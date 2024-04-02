@@ -18,10 +18,13 @@
 
             <s:form action="createUser">
                 <s:textfield name="user.userName" label="Usuario" class="form-control"/>
+                <s:textfield name="user.password" label="Contraseña" class="form-control"/>
                 <s:textfield name="user.name" label="Nombre" class="form-control"/>
                 <s:textfield name="user.lastName" label="Apellidos" class="form-control"/>
-                <s:textfield name="user.role" label="Rol" class="form-control"/>
-                <s:submit value="Submit"/>
+                <s:checkbox name="user.admin" label="¿Es administrador?" class="form-check-input"/>
+                <s:checkbox name="user.warehouse" label="¿Gestión de stock?" class="form-check-input"/>
+                <s:checkbox name="user.client" label="¿Es cliente?" class="form-check-input"/>
+                <s:submit value="Guardar" class="btn bg-primary-subtle btn-sm"/>
             </s:form>
         </div>
     </div>

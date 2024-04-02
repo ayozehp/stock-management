@@ -1,5 +1,7 @@
 package es.ayozehp.stock.management.model;
 
+import org.hibernate.annotations.Type;
+
 import javax.persistence.*;
 import java.io.Serializable;
 
@@ -14,22 +16,26 @@ public class User implements Serializable {
     @Column(name = "user_name")
     private String userName;
 
+    @Column(name = "password")
+    private String password;
+
     @Column(name = "name")
     private String name;
 
     @Column(name = "last_name")
     private String lastName;
 
-    @Column(name = "role")
-    private String role;
+    @Column(name = "is_admin")
+    @Type(type="numeric_boolean")
+    private boolean admin;
 
-    public User(String id, String userName, String name, String lastName, String role) {
-        this.id = id;
-        this.userName = userName;
-        this.name = name;
-        this.lastName = lastName;
-        this.role = role;
-    }
+    @Column(name = "is_warehouse")
+    @Type(type="numeric_boolean")
+    private boolean warehouse;
+
+    @Column(name = "is_client")
+    @Type(type="numeric_boolean")
+    private boolean client;
 
     public User() {
 
@@ -51,6 +57,14 @@ public class User implements Serializable {
         this.userName = userName;
     }
 
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
     public String getName() {
         return name;
     }
@@ -67,11 +81,27 @@ public class User implements Serializable {
         this.lastName = lastName;
     }
 
-    public String getRole() {
-        return role;
+    public boolean isAdmin() {
+        return admin;
     }
 
-    public void setRole(String role) {
-        this.role = role;
+    public void setAdmin(boolean admin) {
+        this.admin = admin;
+    }
+
+    public boolean isWarehouse() {
+        return warehouse;
+    }
+
+    public void setWarehouse(boolean warehouse) {
+        this.warehouse = warehouse;
+    }
+
+    public boolean isClient() {
+        return client;
+    }
+
+    public void setClient(boolean client) {
+        this.client = client;
     }
 }

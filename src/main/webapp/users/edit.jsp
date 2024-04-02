@@ -14,14 +14,16 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Crear usuario</h2>
+            <h2>Editar usuario</h2>
 
             <s:form action="createUser">
                 <s:textfield name="user.userName" label="Usuario" class="form-control" value="%{user.id}"/>
                 <s:textfield name="user.name" label="Nombre" class="form-control" value="%{user.name}"/>
                 <s:textfield name="user.lastName" label="Apellidos" class="form-control" value="%{user.lastName}"/>
-                <s:textfield name="user.role" label="Rol" class="form-control" value="%{user.role}"/>
-                <s:submit value="Submit"/>
+                <s:checkbox name="user.admin" label="¿Es administrador?" class="form-check-input" value="%{user.admin}"/>
+                <s:checkbox name="user.warehouse" label="¿Gestión de stock?" class="form-check-input" value="%{user.warehouse}"/>
+                <s:checkbox name="user.client" label="¿Es cliente?" class="form-check-input" value="%{user.client}"/>
+                <s:submit value="Guardar" class="btn bg-primary-subtle btn-sm"/>
             </s:form>
         </div>
     </div>

@@ -10,6 +10,7 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
+<jsp:include page="_navbar.jsp" />
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-4">

@@ -11,7 +11,7 @@
 </head>
 <body>
 <jsp:include page="../_navbar.jsp" />
-<div class="container pt-5">
+<div class="container">
     <div class="row">
         <div class="col">
             <h2>Lista de usuarios</h2>
@@ -24,32 +24,34 @@
                 <table class="table table-striped">
                     <thead>
                     <tr>
-                        <th scope="col">ID</th>
                         <th scope="col">Usuario</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellidos</th>
-                        <th scope="col">Rol</th>
+                        <th scope="col">¿Admin?</th>
+                        <th scope="col">¿Stock?</th>
+                        <th scope="col">¿Cliente?</th>
                         <th scope="col">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
                     <s:iterator value="users">
                         <tr>
-                            <th scope="row"><s:property value="id"/></th>
                             <td><s:property value="userName"/></td>
                             <td><s:property value="name"/></td>
                             <td><s:property value="lastName"/></td>
-                            <td><s:property value="role"/></td>
+                            <td><s:property value="admin"/></td>
+                            <td><s:property value="warehouse"/></td>
+                            <td><s:property value="client"/></td>
                             <td>
-                                <s:form action="deleteUser" method="post" theme="simple">
-                                    <s:hidden name="id" label="User ID" value="%{id}"/>
-                                    <s:submit value="Eliminar" class="btn btn-primary btn-sm"/>
-                                </s:form>
+                                <s:url action="deleteUser" var="removeUserLink">
+                                    <s:param name="id" value="%{id}" />
+                                </s:url>
+                                <a class="btn btn-primary btn-sm" href="${removeUserLink}">Eliminar</a>
 
-                                <s:form action="viewEditUser" method="post" theme="simple">
-                                    <s:hidden name="userId" label="User ID" value="%{id}"/>
-                                    <s:submit value="Editar" class="btn btn-primary btn-sm"/>
-                                </s:form>
+                                <s:url action="viewEditUser" var="editUserLink">
+                                    <s:param name="userId" value="%{id}" />
+                                </s:url>
+                                <a class="btn btn-primary btn-sm" href="${editUserLink}">Editar</a>
                             </td>
                         </tr>
                     </s:iterator>

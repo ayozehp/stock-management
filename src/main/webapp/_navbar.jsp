@@ -1,11 +1,11 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<nav class="navbar navbar-expand-lg bg-primary">
+<nav class="navbar navbar-expand-lg bg-primary-subtle mb-5" data-bs-theme="light">
     <div class="container">
         <a class="navbar-brand" href="#">
             <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24"
                  class="d-inline-block align-text-top">
-            Stock Management
+            StockApp
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
                 aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
