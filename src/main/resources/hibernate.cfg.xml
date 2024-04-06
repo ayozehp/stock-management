@@ -9,5 +9,6 @@
         <property name="hibernate.connection.username">root</property>
         <property name="hibernate.connection.password">password</property>
         <mapping class="es.ayozehp.stock.management.model.User"/>
+        <mapping class="es.ayozehp.stock.management.model.Product"/>
     </session-factory>
 </hibernate-configuration>

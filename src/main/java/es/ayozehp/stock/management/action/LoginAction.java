@@ -53,7 +53,13 @@ public class LoginAction extends ActionSupport implements SessionAware {
         this.session.put("isWarehouse", user.isWarehouse());
         this.session.put("isClient", user.isClient());
 
-        return SUCCESS;
+        if (user.isAdmin()) {
+            return "admin";
+        } else if (user.isWarehouse()) {
+            return "warehouse";
+        } else {
+            return SUCCESS;
+        }
     }
 
     @Override

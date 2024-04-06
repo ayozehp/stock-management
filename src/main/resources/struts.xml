@@ -20,7 +20,9 @@
         </action>
 
         <action name="login" class="es.ayozehp.stock.management.action.LoginAction" method="execute">
-            <result name="success" type="redirectAction">users</result>
+            <result name="admin" type="redirectAction">users</result>
+            <result name="warehouse" type="redirectAction">products</result>
+            <result name="success" type="redirectAction">shop</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
@@ -71,6 +73,59 @@
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
             <result name="success">/users/delete.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="products" class="es.ayozehp.stock.management.action.product.ListProductAction" method="execute">
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success">/products/list.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="viewCreateProduct" class="es.ayozehp.stock.management.action.product.CreateProductAction" method="input">
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success">/products/create.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="createProduct" class="es.ayozehp.stock.management.action.product.CreateProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success" type="redirectAction">products</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="viewEditProduct" class="es.ayozehp.stock.management.action.product.EditProductAction" method="input">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success">/products/edit.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="editProduct" class="es.ayozehp.stock.management.action.product.EditProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success" type="redirectAction">products</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="deleteProduct" class="es.ayozehp.stock.management.action.product.DeleteProductAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isWarehouse"/>
+            <result name="success">/products/delete.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
+
+        <action name="shop" class="es.ayozehp.stock.management.action.shop.ListProductAction" method="execute">
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isClient"/>
+            <result name="success">/shop/list.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
     </package>
