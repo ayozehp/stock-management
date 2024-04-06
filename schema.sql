@@ -16,4 +16,7 @@ CREATE TABLE users
     PRIMARY KEY (id)
 );
 
-INSERT INTO users VALUES ("740d9fa7-f6b7-49db-bf19-e343ff00f537", "admin", "password", "Admin", "User", 1, 0, 0);
+INSERT INTO users VALUES ("740d9fa7-f6b7-49db-bf19-e343ff00f537", "super", "password", "Super", "User", 1, 1, 1);
+INSERT INTO users VALUES ("99cc9369-bd4a-4cbe-b6bb-8d6f0eb1eef8", "admin", "password", "Admin", "User", 1, 0, 0);
+INSERT INTO users VALUES ("4e46ac1e-4f2e-4622-b4dc-25c565111007", "warehouse", "password", "Warehouse", "User", 0, 1, 0);
+INSERT INTO users VALUES ("5ab7979d-059b-42fd-8384-174264cc62d4", "client", "password", "Client", "User", 0, 0, 1);
