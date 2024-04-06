@@ -18,6 +18,7 @@
 
         <action name="login" class="es.ayozehp.stock.management.action.LoginAction" method="execute">
             <result name="success" type="redirectAction">users</result>
+            <result name="error" type="redirectAction">home</result>
         </action>
 
         <action name="logout" class="es.ayozehp.stock.management.action.LogoutAction" method="execute">

@@ -26,7 +26,7 @@ public class InterceptorLogin implements Interceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
 
-        if (session.get("started") == null) {
+        if (session.get("started") == null || !((boolean) session.get("started"))) {
             LOG.info("Session not started");
             return Action.ERROR;
         }

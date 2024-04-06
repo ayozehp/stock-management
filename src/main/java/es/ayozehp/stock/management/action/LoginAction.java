@@ -1,6 +1,7 @@
 package es.ayozehp.stock.management.action;
 
 import com.opensymphony.xwork2.ActionSupport;
+import es.ayozehp.stock.management.model.User;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -32,14 +33,25 @@ public class LoginAction extends ActionSupport implements SessionAware {
     }
 
     public String execute() {
-        session.put("started", true);
-
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        session.createQuery("FROM es.ayozehp.stock.management.model.User").list();
+        User user = (User) session.createQuery("FROM es.ayozehp.stock.management.model.User WHERE userName = :userName AND password = :password")
+                .setParameter("userName", getUserName())
+                .setParameter("password", getPassword())
+                .uniqueResult();
         session.getTransaction().commit();
         session.close();
+
+        if (user == null) {
+            return ERROR;
+        }
+
+        this.session.put("started", true);
+        this.session.put("name", user.getName());
+        this.session.put("isAdmin", user.isAdmin());
+        this.session.put("isWarehouse", user.isWarehouse());
+        this.session.put("isClient", user.isClient());
 
         return SUCCESS;
     }
