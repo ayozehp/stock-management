@@ -28,21 +28,21 @@
             <result name="success" type="redirectAction">home</result>
         </action>
 
-        <action name="users" class="es.ayozehp.stock.management.action.ListUserAction" method="execute">
+        <action name="users" class="es.ayozehp.stock.management.action.user.ListUserAction" method="execute">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
             <result name="success">/users/list.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewCreateUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="input">
+        <action name="viewCreateUser" class="es.ayozehp.stock.management.action.user.CreateUserAction" method="input">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
             <result name="success">/users/create.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="createUser" class="es.ayozehp.stock.management.action.CreateUserAction" method="execute">
+        <action name="createUser" class="es.ayozehp.stock.management.action.user.CreateUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -50,7 +50,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewEditUser" class="es.ayozehp.stock.management.action.EditUserAction" method="input">
+        <action name="viewEditUser" class="es.ayozehp.stock.management.action.user.EditUserAction" method="input">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -58,7 +58,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="editUser" class="es.ayozehp.stock.management.action.EditUserAction" method="execute">
+        <action name="editUser" class="es.ayozehp.stock.management.action.user.EditUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -66,7 +66,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="deleteUser" class="es.ayozehp.stock.management.action.DeleteUserAction" method="execute">
+        <action name="deleteUser" class="es.ayozehp.stock.management.action.user.DeleteUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>

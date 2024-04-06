@@ -1,4 +1,4 @@
-package es.ayozehp.stock.management.action;
+package es.ayozehp.stock.management.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
 import es.ayozehp.stock.management.model.User;
