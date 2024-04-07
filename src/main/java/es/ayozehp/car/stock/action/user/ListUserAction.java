@@ -16,7 +16,7 @@ public class ListUserAction extends ActionSupport{
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        users = session.createQuery("FROM es.ayozehp.stock.management.model.User").list();
+        users = session.createQuery("FROM User").list();
         session.getTransaction().commit();
         session.close();
 

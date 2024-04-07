@@ -16,7 +16,7 @@ public class ListProductAction extends ActionSupport{
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        products = session.createQuery("FROM es.ayozehp.stock.management.model.Product").list();
+        products = session.createQuery("FROM Product").list();
         session.getTransaction().commit();
         session.close();
 

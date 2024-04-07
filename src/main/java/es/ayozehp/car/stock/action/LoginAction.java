@@ -36,7 +36,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        User user = (User) session.createQuery("FROM es.ayozehp.stock.management.model.User WHERE userName = :userName AND password = :password")
+        User user = (User) session.createQuery("FROM User WHERE userName = :userName AND password = :password")
                 .setParameter("userName", getUserName())
                 .setParameter("password", getPassword())
                 .uniqueResult();
