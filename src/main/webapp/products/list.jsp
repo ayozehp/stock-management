@@ -31,6 +31,7 @@
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
                         <th scope="col">Cantidad</th>
+                        <th scope="col">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -43,12 +44,12 @@
                                 <s:url action="deleteProduct" var="removeProductLink">
                                     <s:param name="id" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-primary btn-sm" href="${removeProductLink}">Eliminar</a>
+                                <a class="btn btn-secondary btn-sm" href="${removeProductLink}">Eliminar</a>
 
                                 <s:url action="viewEditProduct" var="editProductLink">
                                     <s:param name="productId" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-primary btn-sm" href="${editProductLink}">Editar</a>
+                                <a class="btn btn-secondary btn-sm" href="${editProductLink}">Editar</a>
                             </td>
                         </tr>
                     </s:iterator>

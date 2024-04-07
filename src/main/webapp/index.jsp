@@ -30,7 +30,7 @@
                 </div>
                 <div class="row">
                     <div class="col">
-                        <s:submit value="Entrar" class="btn btn-primary"/>
+                        <s:submit value="Entrar" class="btn btn-secondary"/>
                     </div>
                 </div>
             </form>

@@ -46,12 +46,12 @@
                                 <s:url action="deleteUser" var="removeUserLink">
                                     <s:param name="id" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-primary btn-sm" href="${removeUserLink}">Eliminar</a>
+                                <a class="btn btn-secondary btn-sm" href="${removeUserLink}">Eliminar</a>
 
                                 <s:url action="viewEditUser" var="editUserLink">
                                     <s:param name="userId" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-primary btn-sm" href="${editUserLink}">Editar</a>
+                                <a class="btn btn-secondary btn-sm" href="${editUserLink}">Editar</a>
                             </td>
                         </tr>
                     </s:iterator>

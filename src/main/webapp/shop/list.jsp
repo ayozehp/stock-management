@@ -38,7 +38,7 @@
                                 <s:url action="addProductToCart" var="addProductToCartLink">
                                     <s:param name="productId" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-primary btn-sm" href="${addProductToCartLink}">Añadir</a>
+                                <a class="btn btn-secondary btn-sm" href="${addProductToCartLink}">Añadir</a>
                             </td>
                         </tr>
                     </s:iterator>
