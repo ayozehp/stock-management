@@ -58,4 +58,8 @@ public class Product implements Serializable {
     public void setStock(int stock) {
         this.stock = stock;
     }
+
+    public boolean lowStock() {
+        return stock < 10;
+    }
 }

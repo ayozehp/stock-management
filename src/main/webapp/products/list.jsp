@@ -10,22 +10,32 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="../_navbar.jsp" />
+<jsp:include page="../_navbar.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col">
             <h2>Lista de produtos</h2>
 
-            <div class="alert alert-warning" role="alert">
-                Hay productos con una cantidad inferior a 10.
-            </div>
+            <s:if test="productsWithStockLowerThanTen.size>0">
+                <div class="alert alert-warning" role="alert">
+                    Hay productos con cantidad inferior a 10. Estos están sombreados en amarillo en la lista, o bien, puede clicar verlos en la siguiente lista:
+                    <ul>
+                        <s:iterator value="productsWithStockLowerThanTen">
+                            <s:url action="viewEditProduct" var="editProductLink">
+                                <s:param name="productId" value="%{id}"/>
+                            </s:url>
+                            <li><a href="${editProductLink}"><s:property value="name"/></a></li>
+                        </s:iterator>
+                    </ul>
+                </div>
+            </s:if>
 
             <s:if test="products.size==0">
                 <p>No hay ningún producto. Crea un nuevo producto <a
                         href='<s:url action="viewCreateProduct.action" />'>aquí</a></p>
             </s:if>
             <s:else>
-                <table class="table table-striped">
+                <table class="table">
                     <thead>
                     <tr>
                         <th scope="col">Nombre</th>
@@ -35,19 +45,19 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <s:iterator value="products">
-                        <tr>
+                    <s:iterator value="products" var="product">
+                        <tr <s:if test="#product.lowstock">class="table-warning"</s:if>>
                             <td><s:property value="name"/></td>
                             <td><s:property value="description"/></td>
                             <td><s:property value="stock"/></td>
                             <td>
                                 <s:url action="deleteProduct" var="removeProductLink">
-                                    <s:param name="id" value="%{id}" />
+                                    <s:param name="id" value="%{id}"/>
                                 </s:url>
                                 <a class="btn btn-secondary btn-sm" href="${removeProductLink}">Eliminar</a>
 
                                 <s:url action="viewEditProduct" var="editProductLink">
-                                    <s:param name="productId" value="%{id}" />
+                                    <s:param name="productId" value="%{id}"/>
                                 </s:url>
                                 <a class="btn btn-secondary btn-sm" href="${editProductLink}">Editar</a>
                             </td>
