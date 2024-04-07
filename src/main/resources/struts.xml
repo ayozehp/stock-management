@@ -9,42 +9,42 @@
 
     <package name="stock-management" extends="struts-default">
         <interceptors>
-            <interceptor name="isLogin" class="es.ayozehp.stock.management.InterceptorLogin"/>
-            <interceptor name="isAdmin" class="es.ayozehp.stock.management.InterceptorIsAdmin"/>
-            <interceptor name="isWarehouse" class="es.ayozehp.stock.management.InterceptorIsWarehouse"/>
-            <interceptor name="isClient" class="es.ayozehp.stock.management.InterceptorIsClient"/>
+            <interceptor name="isLogin" class="es.ayozehp.car.stock.InterceptorLogin"/>
+            <interceptor name="isAdmin" class="es.ayozehp.car.stock.InterceptorIsAdmin"/>
+            <interceptor name="isWarehouse" class="es.ayozehp.car.stock.InterceptorIsWarehouse"/>
+            <interceptor name="isClient" class="es.ayozehp.car.stock.InterceptorIsClient"/>
         </interceptors>
 
-        <action name="home" class="es.ayozehp.stock.management.action.HomeAction" method="execute">
+        <action name="home" class="es.ayozehp.car.stock.action.HomeAction" method="execute">
             <result>/index.jsp</result>
         </action>
 
-        <action name="login" class="es.ayozehp.stock.management.action.LoginAction" method="execute">
+        <action name="login" class="es.ayozehp.car.stock.action.LoginAction" method="execute">
             <result name="admin" type="redirectAction">users</result>
             <result name="warehouse" type="redirectAction">products</result>
             <result name="success" type="redirectAction">shop</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="logout" class="es.ayozehp.stock.management.action.LogoutAction" method="execute">
+        <action name="logout" class="es.ayozehp.car.stock.action.LogoutAction" method="execute">
             <result name="success" type="redirectAction">home</result>
         </action>
 
-        <action name="users" class="es.ayozehp.stock.management.action.user.ListUserAction" method="execute">
+        <action name="users" class="es.ayozehp.car.stock.action.user.ListUserAction" method="execute">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
             <result name="success">/users/list.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewCreateUser" class="es.ayozehp.stock.management.action.user.CreateUserAction" method="input">
+        <action name="viewCreateUser" class="es.ayozehp.car.stock.action.user.CreateUserAction" method="input">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
             <result name="success">/users/create.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="createUser" class="es.ayozehp.stock.management.action.user.CreateUserAction" method="execute">
+        <action name="createUser" class="es.ayozehp.car.stock.action.user.CreateUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -52,7 +52,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewEditUser" class="es.ayozehp.stock.management.action.user.EditUserAction" method="input">
+        <action name="viewEditUser" class="es.ayozehp.car.stock.action.user.EditUserAction" method="input">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -60,7 +60,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="editUser" class="es.ayozehp.stock.management.action.user.EditUserAction" method="execute">
+        <action name="editUser" class="es.ayozehp.car.stock.action.user.EditUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -68,7 +68,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="deleteUser" class="es.ayozehp.stock.management.action.user.DeleteUserAction" method="execute">
+        <action name="deleteUser" class="es.ayozehp.car.stock.action.user.DeleteUserAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isAdmin"/>
@@ -76,21 +76,21 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="products" class="es.ayozehp.stock.management.action.product.ListProductAction" method="execute">
+        <action name="products" class="es.ayozehp.car.stock.action.product.ListProductAction" method="execute">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
             <result name="success">/products/list.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewCreateProduct" class="es.ayozehp.stock.management.action.product.CreateProductAction" method="input">
+        <action name="viewCreateProduct" class="es.ayozehp.car.stock.action.product.CreateProductAction" method="input">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
             <result name="success">/products/create.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="createProduct" class="es.ayozehp.stock.management.action.product.CreateProductAction" method="execute">
+        <action name="createProduct" class="es.ayozehp.car.stock.action.product.CreateProductAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
@@ -98,7 +98,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="viewEditProduct" class="es.ayozehp.stock.management.action.product.EditProductAction" method="input">
+        <action name="viewEditProduct" class="es.ayozehp.car.stock.action.product.EditProductAction" method="input">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
@@ -106,7 +106,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="editProduct" class="es.ayozehp.stock.management.action.product.EditProductAction" method="execute">
+        <action name="editProduct" class="es.ayozehp.car.stock.action.product.EditProductAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
@@ -114,7 +114,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="deleteProduct" class="es.ayozehp.stock.management.action.product.DeleteProductAction" method="execute">
+        <action name="deleteProduct" class="es.ayozehp.car.stock.action.product.DeleteProductAction" method="execute">
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isWarehouse"/>
@@ -122,7 +122,7 @@
             <result name="error" type="redirectAction">home</result>
         </action>
 
-        <action name="shop" class="es.ayozehp.stock.management.action.shop.ListProductAction" method="execute">
+        <action name="shop" class="es.ayozehp.car.stock.action.shop.ListProductAction" method="execute">
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isClient"/>
             <result name="success">/shop/list.jsp</result>

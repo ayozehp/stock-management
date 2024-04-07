@@ -10,18 +10,30 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="_navbar.jsp" />
+<jsp:include page="_navbar.jsp"/>
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-4">
-            <h1>Login</h1>
+            <h2>Login</h2>
+            <p>Acceda a StockApp usando su nombre de usuario y contraseña. Si no dispone de uno, por favor, póngase en contacto con nosotros para darlte de alta en <a href="mailto:hola@example.com">hola@example.com</a></p>
 
-            <s:actionerror/>
-            <s:form action="login" method="post">
-                <s:textfield name="userName" label="Usuario"/>
-                <s:password name="password" label="Contraseña"/>
-                <s:submit value="Entrar"/>
-            </s:form>
+            <form action="login.action" method="post" validate="true">
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:textfield name="userName" placeholder="Usuario" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:password name="password" placeholder="Contraseña" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <s:submit value="Entrar" class="btn btn-primary"/>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

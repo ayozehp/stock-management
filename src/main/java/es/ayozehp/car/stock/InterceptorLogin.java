@@ -1,4 +1,4 @@
-package es.ayozehp.stock.management;
+package es.ayozehp.car.stock;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;

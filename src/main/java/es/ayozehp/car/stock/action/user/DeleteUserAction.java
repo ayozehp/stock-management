@@ -1,35 +1,29 @@
-package es.ayozehp.stock.management.action.user;
+package es.ayozehp.car.stock.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
-import es.ayozehp.stock.management.model.User;
+import es.ayozehp.car.stock.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-import java.util.UUID;
+public class DeleteUserAction extends ActionSupport{
 
-public class CreateUserAction extends ActionSupport {
+    private String id;
 
-    private User user;
-
-    public User getUser() {
-        return user;
+    public String getId() {
+        return id;
     }
 
-    public void setUser(User user) {
-        this.user = user;
-    }
-
-    public String input() {
-        return SUCCESS;
+    public void setId(String id) {
+        this.id = id;
     }
 
     public String execute() {
-        user.setId(UUID.randomUUID().toString());
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        session.saveOrUpdate(user);
+        User user = session.get(User.class, id);
+        session.delete(user);
         session.getTransaction().commit();
         session.close();
 

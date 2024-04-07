@@ -1,4 +1,4 @@
-package es.ayozehp.stock.management.action;
+package es.ayozehp.car.stock.action;
 
 import com.opensymphony.xwork2.ActionSupport;
 import org.apache.struts2.interceptor.SessionAware;

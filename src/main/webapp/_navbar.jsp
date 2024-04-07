@@ -1,9 +1,9 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
 
-<nav class="navbar navbar-expand-lg bg-primary-subtle mb-5" data-bs-theme="light">
+<nav class="navbar navbar-expand-lg bg-secondary text-white mb-5" data-bs-theme="dark">
     <div class="container">
         <a class="navbar-brand" href="#">
-            StockApp
+            CarStock
         </a>
         <% if (session.getAttribute("started") != null) { %>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"

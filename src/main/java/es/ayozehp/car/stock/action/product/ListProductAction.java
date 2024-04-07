@@ -1,7 +1,7 @@
-package es.ayozehp.stock.management.action.user;
+package es.ayozehp.car.stock.action.product;
 
 import com.opensymphony.xwork2.ActionSupport;
-import es.ayozehp.stock.management.model.User;
+import es.ayozehp.car.stock.model.Product;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -9,21 +9,21 @@ import org.hibernate.cfg.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
-public class ListUserAction extends ActionSupport{
-    private List<User> users = new ArrayList<>();
+public class ListProductAction extends ActionSupport{
+    private List<Product> products = new ArrayList<>();
 
     public String execute() {
         SessionFactory factory = new Configuration().configure().buildSessionFactory();
         Session session = factory.openSession();
         session.beginTransaction();
-        users = session.createQuery("FROM es.ayozehp.stock.management.model.User").list();
+        products = session.createQuery("FROM es.ayozehp.stock.management.model.Product").list();
         session.getTransaction().commit();
         session.close();
 
         return SUCCESS;
     }
 
-    public List<User> getUsers() {
-        return users;
+    public List<Product> getProducts() {
+        return products;
     }
 }

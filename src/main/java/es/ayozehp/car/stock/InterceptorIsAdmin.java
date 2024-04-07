@@ -1,4 +1,4 @@
-package es.ayozehp.stock.management;
+package es.ayozehp.car.stock;
 
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionInvocation;
@@ -8,9 +8,9 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Map;
 
-public class InterceptorIsWarehouse implements Interceptor {
+public class InterceptorIsAdmin implements Interceptor {
 
-    private static final Logger LOG = LogManager.getLogger(InterceptorIsWarehouse.class.getName());
+    private static final Logger LOG = LogManager.getLogger(InterceptorIsAdmin.class.getName());
 
     @Override
     public void destroy() {
@@ -26,12 +26,12 @@ public class InterceptorIsWarehouse implements Interceptor {
     public String intercept(ActionInvocation actionInvocation) throws Exception {
         Map<String, Object> session = actionInvocation.getInvocationContext().getSession();
 
-        if (session.get("isWarehouse") == null || !((boolean) session.get("isWarehouse"))) {
-            LOG.info("Not role matched: Warehouse");
+        if (session.get("isAdmin") == null || !((boolean) session.get("isAdmin"))) {
+            LOG.info("Not role matched: Admin");
             return Action.ERROR;
         }
 
-        LOG.info("Role matched: Warehouse");
+        LOG.info("Role matched: Admin");
         return actionInvocation.invoke();
     }
 }

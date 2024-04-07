@@ -1,7 +1,7 @@
-package es.ayozehp.stock.management.action.user;
+package es.ayozehp.car.stock.action.user;
 
 import com.opensymphony.xwork2.ActionSupport;
-import es.ayozehp.stock.management.model.User;
+import es.ayozehp.car.stock.model.User;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;

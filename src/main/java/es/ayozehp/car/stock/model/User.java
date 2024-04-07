@@ -1,4 +1,4 @@
-package es.ayozehp.stock.management.model;
+package es.ayozehp.car.stock.model;
 
 import org.hibernate.annotations.Type;
 

@@ -1,7 +1,7 @@
-package es.ayozehp.stock.management.action;
+package es.ayozehp.car.stock.action;
 
 import com.opensymphony.xwork2.ActionSupport;
-import es.ayozehp.stock.management.model.User;
+import es.ayozehp.car.stock.model.User;
 import org.apache.struts2.interceptor.SessionAware;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
