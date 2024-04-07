@@ -12,11 +12,11 @@
 <body>
 <jsp:include page="../_navbar.jsp" />
 <div class="container">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-4">
             <h2>Usuario eliminado</h2>
 
-            <p><a href='<s:url action="users.action" />'>Ver todos los usuarios</a></p>
+            <p>Volver a <a href='<s:url action="users.action" />'>todos los usuarios</a></p>
         </div>
     </div>
 </div>

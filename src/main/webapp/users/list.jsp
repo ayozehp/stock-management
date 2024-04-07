@@ -27,9 +27,9 @@
                         <th scope="col">Usuario</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellidos</th>
-                        <th scope="col">¿Admin?</th>
-                        <th scope="col">¿Stock?</th>
-                        <th scope="col">¿Cliente?</th>
+                        <th scope="col">¿Es administrador?</th>
+                        <th scope="col">¿Gestión de stock?</th>
+                        <th scope="col">¿Es cliente?</th>
                         <th scope="col">Acciones</th>
                     </tr>
                     </thead>

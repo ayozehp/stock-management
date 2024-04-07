@@ -12,20 +12,52 @@
 <body>
 <jsp:include page="../_navbar.jsp" />
 <div class="container">
-    <div class="row">
-        <div class="col">
+    <div class="row justify-content-center">
+        <div class="col-4">
             <h2>Crear usuario</h2>
 
-            <s:form action="createUser">
-                <s:textfield name="user.userName" label="Usuario" class="form-control"/>
-                <s:textfield name="user.password" label="Contraseña" class="form-control"/>
-                <s:textfield name="user.name" label="Nombre" class="form-control"/>
-                <s:textfield name="user.lastName" label="Apellidos" class="form-control"/>
-                <s:checkbox name="user.admin" label="¿Es administrador?" class="form-check-input"/>
-                <s:checkbox name="user.warehouse" label="¿Gestión de stock?" class="form-check-input"/>
-                <s:checkbox name="user.client" label="¿Es cliente?" class="form-check-input"/>
-                <s:submit value="Guardar" class="btn bg-primary-subtle btn-sm"/>
-            </s:form>
+            <form action="createUser.action" method="post" validate="true">
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:textfield name="user.userName" placeholder="Usuario" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:textfield name="user.password" placeholder="Contraseña" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:textfield name="user.name" placeholder="Nombre" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:textfield name="user.lastName" placeholder="Apellidos" class="form-control"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:checkbox name="user.admin" label="¿Gestiona usuarios?" class="form-check-input"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:checkbox name="user.warehouse" label="¿Gestiona stock?" class="form-check-input"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col mb-3">
+                        <s:checkbox name="user.client" label="¿Quiere comprar?" class="form-check-input"/>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col">
+                        <s:submit value="Crear usuario" class="btn btn-secondary"/>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>

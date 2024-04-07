@@ -46,9 +46,8 @@
                 <% } %>
             </ul>
             <% if ((boolean) session.getAttribute("started")) { %>
-            <span class="navbar-text">
-                    <a class="dropdown-item" href='<s:url action="logout.action" />'>Salir</a>
-                </span>
+            <span class="navbar-text"><s:property value="#session.name" />, <a class="dropdown-item"
+                                                   href='<s:url action="logout.action" />'>Salir</a></span>
             <% } %>
         </div>
     </div>
