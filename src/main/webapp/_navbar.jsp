@@ -41,7 +41,7 @@
                 <% } %>
                 <% if ((boolean) session.getAttribute("isClient")) { %>
                 <li class="nav-item">
-                    <a class="nav-link" href="#">Carrito</a>
+                    <a class="nav-link" href="<s:url action="viewCart.action" />">Carrito</a>
                 </li>
                 <% } %>
             </ul>

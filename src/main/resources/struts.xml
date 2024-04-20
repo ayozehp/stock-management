@@ -128,5 +128,21 @@
             <result name="success">/shop/list.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
+
+        <action name="addProductToCart" class="es.ayozehp.car.stock.action.shop.AddProductToCartAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isClient"/>
+            <result name="success" type="redirectAction">shop</result>
+            <result name="error" type="redirectAction">shop</result>
+        </action>
+
+        <action name="viewCart" class="es.ayozehp.car.stock.action.shop.ViewCartAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isClient"/>
+            <result name="success">/shop/cart.jsp</result>
+            <result name="error" type="redirectAction">home</result>
+        </action>
     </package>
 </struts>

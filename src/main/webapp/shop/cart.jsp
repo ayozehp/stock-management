@@ -14,10 +14,10 @@
 <div class="container">
     <div class="row">
         <div class="col">
-            <h2>Lista de productos</h2>
+            <h2>Carrito</h2>
 
             <s:if test="products.size==0">
-                <p>No hay ningún producto</p>
+                <p>No hay ningún producto. Volver a <a href="<s:url action="shop.action" />">comprar</a></p>
             </s:if>
             <s:else>
                 <table class="table table-striped">
@@ -25,23 +25,24 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col">Cantidad</th>
                     </tr>
                     </thead>
                     <tbody>
-                    <s:iterator value="products">
+                    <s:iterator value="products" var="productMapElement">
                         <tr>
-                            <td><s:property value="name"/></td>
-                            <td><s:property value="description"/></td>
-                            <td>
-                                <s:url action="addProductToCart" var="addProductToCartLink">
-                                    <s:param name="productId" value="%{id}" />
-                                </s:url>
-                                <a class="btn btn-secondary btn-sm" href="${addProductToCartLink}">Añadir</a>
-                            </td>
+                            <td><s:property value="key.name"/></td>
+                            <td><s:property value="key.description"/></td>
+                            <td><s:property value="value"/></td>
                         </tr>
                     </s:iterator>
                     </tbody>
                 </table>
+
+                <div class="mt-5">
+                    <a href="<s:url action="shop.action" />" role="button" class="btn btn-secondary">Seguir comprando</a>
+                    <a href="#" role="button" class="btn btn-primary float-end">Pagar</a>
+                </div>
             </s:else>
         </div>
     </div>
