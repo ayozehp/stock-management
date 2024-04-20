@@ -14,9 +14,9 @@ CREATE TABLE users
     password     varchar(255) NOT NULL,
     name         varchar(255) NOT NULL,
     last_name    varchar(255) NOT NULL,
-    is_admin     TINYINT(1) NOT NULL DEFAULT 0,
-    is_warehouse TINYINT(1) NOT NULL DEFAULT 0,
-    is_client    TINYINT(1) NOT NULL DEFAULT 0,
+    is_admin     TINYINT(1)   NOT NULL DEFAULT 0,
+    is_warehouse TINYINT(1)   NOT NULL DEFAULT 0,
+    is_client    TINYINT(1)   NOT NULL DEFAULT 0,
     PRIMARY KEY (id)
 );
 
@@ -26,6 +26,14 @@ CREATE TABLE products
     name        varchar(255) NOT NULL,
     description text         NOT NULL,
     stock       int          NOT NULL,
+    PRIMARY KEY (id)
+);
+
+CREATE TABLE orders
+(
+    id        varchar(36),
+    client_id varchar(36) NOT NULL,
+    cart      JSON        NOT NULL,
     PRIMARY KEY (id)
 );
 
