@@ -10,5 +10,6 @@
         <property name="hibernate.connection.password">password</property>
         <mapping class="es.ayozehp.car.stock.model.User"/>
         <mapping class="es.ayozehp.car.stock.model.Product"/>
+        <mapping class="es.ayozehp.car.stock.model.Order"/>
     </session-factory>
 </hibernate-configuration>

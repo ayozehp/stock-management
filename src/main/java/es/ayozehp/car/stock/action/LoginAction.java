@@ -48,6 +48,7 @@ public class LoginAction extends ActionSupport implements SessionAware {
         }
 
         this.session.put("started", true);
+        this.session.put("id", user.getId());
         this.session.put("name", user.getName());
         this.session.put("isAdmin", user.isAdmin());
         this.session.put("isWarehouse", user.isWarehouse());

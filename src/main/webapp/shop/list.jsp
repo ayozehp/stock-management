@@ -36,7 +36,12 @@
                                 <s:url action="addProductToCart" var="addProductToCartLink">
                                     <s:param name="productId" value="%{id}" />
                                 </s:url>
-                                <a class="btn btn-secondary btn-sm" href="${addProductToCartLink}">Añadir</a>
+                                <s:if test="stock==0">
+                                    Agotado
+                                </s:if>
+                                <s:else>
+                                    <a class="btn btn-secondary btn-sm" href="${addProductToCartLink}">Añadir</a>
+                                </s:else>
                             </td>
                         </tr>
                     </s:iterator>

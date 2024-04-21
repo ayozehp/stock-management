@@ -41,7 +41,7 @@
 
                 <div class="mt-5">
                     <a href="<s:url action="shop.action" />" role="button" class="btn btn-secondary">Seguir comprando</a>
-                    <a href="#" role="button" class="btn btn-primary float-end">Pagar</a>
+                    <a href="<s:url action="confirmCart.action" />" role="button" class="btn btn-primary float-end">Confirmar</a>
                 </div>
             </s:else>
         </div>

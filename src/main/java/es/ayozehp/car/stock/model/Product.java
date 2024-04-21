@@ -62,4 +62,8 @@ public class Product implements Serializable {
     public boolean lowStock() {
         return stock < 10;
     }
+
+    public void reduceStock(Integer amount) {
+        this.stock -= amount;
+    }
 }

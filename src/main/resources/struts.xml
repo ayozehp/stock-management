@@ -144,5 +144,13 @@
             <result name="success">/shop/cart.jsp</result>
             <result name="error" type="redirectAction">home</result>
         </action>
+
+        <action name="confirmCart" class="es.ayozehp.car.stock.action.shop.ConfirmCartAction" method="execute">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="isLogin"/>
+            <interceptor-ref name="isClient"/>
+            <result name="success" type="redirectAction">shop</result>
+            <result name="error" type="redirectAction">viewCart</result>
+        </action>
     </package>
 </struts>
