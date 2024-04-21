@@ -19,6 +19,7 @@
             <s:form action="createProduct">
                 <s:textfield name="product.name" label="Nombre" class="form-control"/>
                 <s:textfield name="product.description" label="Descripción" class="form-control"/>
+                <s:textfield name="product.price" label="Precio" class="form-control"/>
                 <s:textfield name="product.stock" label="Cantidad" class="form-control"/>
 
                 <s:submit value="Guardar" class="btn bg-primary-subtle btn-sm"/>

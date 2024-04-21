@@ -12,6 +12,7 @@ import java.util.Map;
 
 public class ViewCartAction extends ActionSupport implements SessionAware {
     private Map<Product, Integer> products = new HashMap<>();
+    private Double total = 0.0;
     private Map<String, Object> session;
 
     public String execute() {
@@ -27,6 +28,7 @@ public class ViewCartAction extends ActionSupport implements SessionAware {
                 session.close();
 
                 products.put(product, amount);
+                total = total + (product.getPrice() * amount);
             });
         }
 
@@ -35,6 +37,10 @@ public class ViewCartAction extends ActionSupport implements SessionAware {
 
     public Map<Product, Integer> getProducts() {
         return products;
+    }
+
+    public Double getTotal() {
+        return total;
     }
 
     @Override

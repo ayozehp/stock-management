@@ -47,6 +47,7 @@ public class EditProductAction extends ActionSupport {
         Product databaseProduct = session.get(Product.class, product.getId());
         databaseProduct.setName(product.getName());
         databaseProduct.setDescription(product.getDescription());
+        databaseProduct.setPrice(product.getPrice());
         databaseProduct.setStock(product.getStock());
         session.saveOrUpdate(databaseProduct);
 

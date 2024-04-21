@@ -25,6 +25,7 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -32,6 +33,7 @@
                         <tr>
                             <td><s:property value="name"/></td>
                             <td><s:property value="description"/></td>
+                            <td><s:property value="price"/>€</td>
                             <td>
                                 <s:url action="addProductToCart" var="addProductToCartLink">
                                     <s:param name="productId" value="%{id}" />

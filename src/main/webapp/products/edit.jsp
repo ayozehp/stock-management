@@ -20,9 +20,10 @@
                 <s:hidden name="product.id" label="ID" class="form-control" value="%{product.id}"/>
                 <s:textfield name="product.name" label="Nombre" class="form-control" value="%{product.name}"/>
                 <s:textfield name="product.description" label="Descripción" class="form-control" value="%{product.description}"/>
+                <s:textfield name="product.price" label="Precio" class="form-control" value="%{product.price}"/>
                 <s:textfield name="product.stock" label="Cantidad" class="form-control" value="%{product.stock}"/>
 
-                <s:submit value="Guardar" class="btn bg-primary-subtle btn-sm"/>
+                <s:submit value="Guardar" class="btn btn-secondary btn-sm"/>
             </s:form>
         </div>
     </div>

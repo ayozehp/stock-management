@@ -40,6 +40,7 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
+                        <th scope="col">Precio</th>
                         <th scope="col">Cantidad</th>
                         <th scope="col">Acciones</th>
                     </tr>
@@ -49,6 +50,7 @@
                         <tr <s:if test="#product.lowstock">class="table-warning"</s:if>>
                             <td><s:property value="name"/></td>
                             <td><s:property value="description"/></td>
+                            <td><s:property value="price"/>€</td>
                             <td><s:property value="stock"/></td>
                             <td>
                                 <s:url action="deleteProduct" var="removeProductLink">

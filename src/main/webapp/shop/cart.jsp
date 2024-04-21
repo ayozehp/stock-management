@@ -25,18 +25,29 @@
                     <tr>
                         <th scope="col">Nombre</th>
                         <th scope="col">Descripción</th>
-                        <th scope="col">Cantidad</th>
+                        <th scope="col" class="text-end">Precio</th>
+                        <th scope="col" class="text-end">Cantidad</th>
+                        <th scope="col" class="text-end">Total</th>
                     </tr>
                     </thead>
                     <tbody>
                     <s:iterator value="products" var="productMapElement">
+                        <s:set var="totalProduct" value="%{key.price * value}" />
                         <tr>
                             <td><s:property value="key.name"/></td>
                             <td><s:property value="key.description"/></td>
-                            <td><s:property value="value"/></td>
+                            <td class="text-end"><s:property value="key.price"/>€</td>
+                            <td class="text-end"><s:property value="value"/></td>
+                            <td class="text-end"><s:property value="#totalProduct"/>€</td>
                         </tr>
                     </s:iterator>
                     </tbody>
+                    <tfoot>
+                        <tr>
+                            <td colspan="4" class="text-end">Total pedido</td>
+                            <td class="text-end"><s:property value="total"/>€</td>
+                        </tr>
+                    </tfoot>
                 </table>
 
                 <div class="mt-5">
