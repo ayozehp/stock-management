@@ -1,6 +1,7 @@
 <!doctype html>
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
+<s:bean name="es.ayozehp.car.stock.UserComparator" var="userComparator"/>
 <html>
 <head>
     <meta charset="utf-8">
@@ -10,7 +11,7 @@
           integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
 </head>
 <body>
-<jsp:include page="../_navbar.jsp" />
+<jsp:include page="../_navbar.jsp"/>
 <div class="container">
     <div class="row">
         <div class="col">
@@ -34,27 +35,29 @@
                     </tr>
                     </thead>
                     <tbody>
-                    <s:iterator value="users">
-                        <tr>
-                            <td><s:property value="userName"/></td>
-                            <td><s:property value="name"/></td>
-                            <td><s:property value="lastName"/></td>
-                            <td><s:property value="admin"/></td>
-                            <td><s:property value="warehouse"/></td>
-                            <td><s:property value="client"/></td>
-                            <td>
-                                <s:url action="deleteUser" var="removeUserLink">
-                                    <s:param name="id" value="%{id}" />
-                                </s:url>
-                                <a class="btn btn-secondary btn-sm" href="${removeUserLink}">Eliminar</a>
+                    <s:sort comparator="#userComparator" source="users">
+                        <s:iterator>
+                            <tr>
+                                <td><s:property value="userName"/></td>
+                                <td><s:property value="name"/></td>
+                                <td><s:property value="lastName"/></td>
+                                <td><s:property value="admin"/></td>
+                                <td><s:property value="warehouse"/></td>
+                                <td><s:property value="client"/></td>
+                                <td>
+                                    <s:url action="deleteUser" var="removeUserLink">
+                                        <s:param name="id" value="%{id}"/>
+                                    </s:url>
+                                    <a class="btn btn-secondary btn-sm" href="${removeUserLink}">Eliminar</a>
 
-                                <s:url action="viewEditUser" var="editUserLink">
-                                    <s:param name="userId" value="%{id}" />
-                                </s:url>
-                                <a class="btn btn-secondary btn-sm" href="${editUserLink}">Editar</a>
-                            </td>
-                        </tr>
-                    </s:iterator>
+                                    <s:url action="viewEditUser" var="editUserLink">
+                                        <s:param name="userId" value="%{id}"/>
+                                    </s:url>
+                                    <a class="btn btn-secondary btn-sm" href="${editUserLink}">Editar</a>
+                                </td>
+                            </tr>
+                        </s:iterator>
+                    </s:sort>
                     </tbody>
                 </table>
             </s:else>
