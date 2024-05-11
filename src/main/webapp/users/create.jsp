@@ -24,7 +24,7 @@
                 </div>
                 <div class="row">
                     <div class="col mb-3">
-                        <s:textfield name="user.password" placeholder="Contraseña" class="form-control"/>
+                        <s:password name="user.password" placeholder="Contraseña" class="form-control"/>
                     </div>
                 </div>
                 <div class="row">
