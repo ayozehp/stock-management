@@ -28,10 +28,10 @@
                         <th scope="col">Usuario</th>
                         <th scope="col">Nombre</th>
                         <th scope="col">Apellidos</th>
-                        <th scope="col">¿Es administrador?</th>
-                        <th scope="col">¿Gestión de stock?</th>
-                        <th scope="col">¿Es cliente?</th>
-                        <th scope="col">Acciones</th>
+                        <th scope="col" class="text-center">¿Es administrador?</th>
+                        <th scope="col" class="text-center">¿Gestión de stock?</th>
+                        <th scope="col" class="text-center">¿Es cliente?</th>
+                        <th scope="col" class="text-end">Acciones</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,10 +41,43 @@
                                 <td><s:property value="userName"/></td>
                                 <td><s:property value="name"/></td>
                                 <td><s:property value="lastName"/></td>
-                                <td><s:property value="admin"/></td>
-                                <td><s:property value="warehouse"/></td>
-                                <td><s:property value="client"/></td>
-                                <td>
+                                <td class="text-center">
+                                    <s:if test="admin">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg text-success" viewBox="0 0 16 16">
+                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                        </svg>
+                                    </s:if>
+                                    <s:else>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-danger" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                        </svg>
+                                    </s:else>
+                                </td>
+                                <td class="text-center">
+                                    <s:if test="warehouse">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg text-success" viewBox="0 0 16 16">
+                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                        </svg>
+                                    </s:if>
+                                    <s:else>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-danger" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                        </svg>
+                                    </s:else>
+                                </td>
+                                <td class="text-center">
+                                    <s:if test="client">
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-check-lg text-success" viewBox="0 0 16 16">
+                                            <path d="M12.736 3.97a.733.733 0 0 1 1.047 0c.286.289.29.756.01 1.05L7.88 12.01a.733.733 0 0 1-1.065.02L3.217 8.384a.757.757 0 0 1 0-1.06.733.733 0 0 1 1.047 0l3.052 3.093 5.4-6.425z"/>
+                                        </svg>
+                                    </s:if>
+                                    <s:else>
+                                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-x-lg text-danger" viewBox="0 0 16 16">
+                                            <path d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"/>
+                                        </svg>
+                                    </s:else>
+                                </td>
+                                <td class="text-end">
                                     <s:url action="deleteUser" var="removeUserLink">
                                         <s:param name="id" value="%{id}"/>
                                     </s:url>
