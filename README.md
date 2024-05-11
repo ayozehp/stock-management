@@ -14,5 +14,7 @@
 Run the app locally using
 
 ```shell
+docker compose up
+
 mvn jetty:run
 ```
