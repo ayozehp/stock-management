@@ -157,7 +157,7 @@
             <interceptor-ref name="defaultStack"/>
             <interceptor-ref name="isLogin"/>
             <interceptor-ref name="isClient"/>
-            <result name="success" type="redirectAction">shop</result>
+            <result name="success">/shop/thank-you.jsp</result>
             <result name="error" type="redirectAction">viewCart</result>
         </action>
     </package>
