@@ -39,10 +39,10 @@ CREATE TABLE orders
 );
 
 INSERT INTO users
-VALUES ("740d9fa7-f6b7-49db-bf19-e343ff00f537", "super", "password", "Super", "User", 1, 1, 1),
-       ("99cc9369-bd4a-4cbe-b6bb-8d6f0eb1eef8", "admin", "password", "Admin", "User", 1, 0, 0),
-       ("4e46ac1e-4f2e-4622-b4dc-25c565111007", "warehouse", "password", "Warehouse", "User", 0, 1, 0),
-       ("5ab7979d-059b-42fd-8384-174264cc62d4", "client", "password", "Client", "User", 0, 0, 1);
+VALUES ("740d9fa7-f6b7-49db-bf19-e343ff00f537", "super", "password", "María", "Aires", 1, 1, 1),
+       ("99cc9369-bd4a-4cbe-b6bb-8d6f0eb1eef8", "admin", "password", "Jose", "Hernández", 1, 0, 0),
+       ("4e46ac1e-4f2e-4622-b4dc-25c565111007", "warehouse", "password", "Francisco", "Gutierrez", 0, 1, 0),
+       ("5ab7979d-059b-42fd-8384-174264cc62d4", "client", "password", "Rosa", "Medina", 0, 0, 1);
 
 INSERT INTO products
 VALUES ("402f513f-f6ca-4814-81c5-5d617adaa51a", "Llantas deportivas",
