@@ -50,6 +50,6 @@ jobs:
       - name: Authenticate docker with ECR
         run: aws ecr get-login-password --region eu-north-1 | docker login --username AWS --password-stdin 968153380465.dkr.ecr.eu-north-1.amazonaws.com
       - name: Tag docker image
-        run: docker tag ayozehp/stock-management:latest 968153380465.dkr.ecr.us-west-2.amazonaws.com/stock-management:latest
+        run: docker tag ayozehp/stock-management:latest 968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management:latest
       - name: Publish image
-        run: docker push 968153380465.dkr.ecr.us-west-2.amazonaws.com/stock-management:latest
+        run: docker push 968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management:latest
