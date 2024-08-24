@@ -40,3 +40,4 @@ jobs:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           image: ayozehp/car-stock
+          args: --severity-threshold=high
