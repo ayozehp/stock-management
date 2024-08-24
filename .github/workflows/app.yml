@@ -30,11 +30,10 @@ jobs:
         with:
           java-version: '22'
           distribution: 'temurin'
-      - name: Check mvn version
-        run: mvn --version
-      - name: Check java version
-        run: java --version
-      - run: mvn clean package
+      - name: Create war file
+        run: mvn clean package
+      - name: Create docker image
+        run: docker build . -t ayozehp/car-stock
       - uses: actions/upload-artifact@v4
         with:
           name: Package
