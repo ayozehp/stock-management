@@ -11,7 +11,7 @@ terraform {
     organization = "ayozehp"
 
     workspaces {
-      name = "stock-management"
+      name = "registry"
     }
   }
 }
