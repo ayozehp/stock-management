@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths-ignore:
       - 'infrastructure/**'
+      - '.github/workflows/infrastructure.yml'
 
 env:
   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
