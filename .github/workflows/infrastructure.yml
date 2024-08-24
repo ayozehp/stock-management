@@ -5,6 +5,7 @@ on:
     branches: [ main ]
     paths:
       - 'infrastructure/**'
+      - '.github/workflows/infrastructure.yml'
 
 env:
   TF_TOKEN_app_terraform_io: ${{ secrets.TF_TOKEN_APP_TERRAFORM_IO }}
