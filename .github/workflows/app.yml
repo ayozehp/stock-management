@@ -34,7 +34,9 @@ jobs:
         run: mvn clean package
       - name: Create docker image
         run: docker build . -t ayozehp/car-stock
-      - uses: actions/upload-artifact@v4
+      - name: Run Snyk to check Docker image for vulnerabilities
+        uses: snyk/actions/docker@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          name: Package
-          path: target/car_stock.war
+          image: ayozehp/car-stock
