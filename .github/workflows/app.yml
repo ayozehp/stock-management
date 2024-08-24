@@ -25,9 +25,8 @@ jobs:
         with:
           java-version: '22'
           distribution: 'temurin'
-      - run: mvn --batch-mode --update-snapshots verify
-      - run: mkdir artefact && cp target/*.jar artefact
+      - run: mvn clean package
       - uses: actions/upload-artifact@v4
         with:
           name: Package
-          path: artefact
+          path: target/car_stock.war
