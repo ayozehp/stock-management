@@ -1,4 +1,4 @@
-resource "aws_ecr_repository" "struts2_app" {
+resource "aws_ecr_repository" "app" {
   name                 = var.name
   image_tag_mutability = "IMMUTABLE"
 
