@@ -25,6 +25,10 @@ jobs:
         with:
           java-version: '22'
           distribution: 'temurin'
+      - name: Check mvn version
+        run: mvn --version
+      - name: Check java version
+        run: java --version
       - run: mvn clean package
       - uses: actions/upload-artifact@v4
         with:
