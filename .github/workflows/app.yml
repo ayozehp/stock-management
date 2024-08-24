@@ -3,6 +3,8 @@ name: app
 on:
   push:
     branches: [ main ]
+    paths-ignore:
+      - '../../infrastructure/**'
 
 env:
   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
