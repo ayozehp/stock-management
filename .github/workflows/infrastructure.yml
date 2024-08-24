@@ -13,6 +13,18 @@ env:
   AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
 
 jobs:
+  security:
+    name: Run security checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/iac@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+
   test:
     name: Test registry infrastructure
     runs-on: ubuntu-latest
@@ -28,7 +40,9 @@ jobs:
 
   create-registry:
     name: Create artefact registry
-    needs: test
+    needs:
+      - security
+      - test
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
