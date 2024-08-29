@@ -64,6 +64,8 @@ jobs:
           terraform -chdir=infrastructure/database init
           terraform -chdir=infrastructure/database apply -var-file="production.tfvars" --auto-approve
           db_identifier=$(terraform output -raw db_identifier)
+          echo $db_identifier
+          echo "db_identifier=$db_identifier"
           echo "db_identifier=$db_identifier" >> "$GITHUB_OUTPUT"
   smoke-test-database:
     name: Smoke test
