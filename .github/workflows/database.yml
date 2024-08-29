@@ -1,10 +1,10 @@
-name: registry
+name: database
 
 on:
   push:
     branches: [ main ]
     paths:
-      - 'infrastructure/database/**'
+      - '../../database/**'
       - '.github/workflows/database.yml'
 
 env:
