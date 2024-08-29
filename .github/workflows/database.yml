@@ -47,6 +47,8 @@ jobs:
       - security
       - test
     runs-on: ubuntu-latest
+    outputs:
+      db_identifier: ${{ steps.apply_terraform.outputs.db_identifier }}
     steps:
       - uses: actions/checkout@master
         name: Checkout code
@@ -56,11 +58,23 @@ jobs:
           terraform_version: 1.9.3
           terraform_wrapper: false
           cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-      # TODO Output database identifier and create a variable to pass the value between steps
-      - name: Apply terraform
+      - id: apply_terraform
+        name: Apply terraform
         run: |          
           terraform -chdir=infrastructure/database init
           terraform -chdir=infrastructure/database apply -var-file="production.tfvars" --auto-approve
-#      - name: Smoke test
-#        run: |
-#          aws rds describe-db-instances --db-instance-identifier mydbinstancecf
+          db_identifier=$(terraform output -raw db_identifier)
+          echo "db_identifier=${db_identifier}">> "$GITHUB_OUTPUT"
+  smoke-test-database:
+    name: Smoke test
+    needs:
+      - create-database
+    runs-on: ubuntu-latest
+    outputs:
+      output1: ${{ steps.apply_terraform.outputs.db_identifier }}
+    steps:
+      - name: Smoke test
+        env:
+          DB_IDENTIFIER: ${{needs.job1.outputs.db_identifier}}
+        run: |
+          aws rds describe-db-instances --region eu-north-1 --db-instance-identifier $DB_IDENTIFIER
