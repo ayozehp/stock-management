@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - 'infrastructure/**'
       - '.github/workflows/registry.yml'
+      - '.github/workflows/database.yml'
 
 env:
   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}

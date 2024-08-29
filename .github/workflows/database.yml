@@ -1,0 +1,66 @@
+name: registry
+
+on:
+  push:
+    branches: [ main ]
+    paths:
+      - 'infrastructure/database/**'
+      - '.github/workflows/database.yml'
+
+env:
+  AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  AWS_DEFAULT_REGION: ${{ vars.AWS_DEFAULT_REGION }}
+
+jobs:
+  security:
+    name: Run security checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/iac@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+          file: infrastructure/database
+
+  test:
+    name: Test database infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout code
+      - uses: hashicorp/setup-terraform@v3
+        name: Install Terraform
+        with:
+          terraform_version: 1.9.3
+          terraform_wrapper: false
+      - run: |
+          terraform -chdir=infrastructure/database init -backend=false
+          terraform -chdir=infrastructure/database validate
+
+  create-database:
+    name: Create artefact database
+    needs:
+      - security
+      - test
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout code
+      - uses: hashicorp/setup-terraform@v3
+        name: Install Terraform
+        with:
+          terraform_version: 1.9.3
+          terraform_wrapper: false
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      # TODO Output database identifier and create a variable to pass the value between steps
+      - name: Apply terraform
+        run: |          
+          terraform -chdir=infrastructure/database init
+          terraform -chdir=infrastructure/database apply -var-file="production.tfvars" --auto-approve
+#      - name: Smoke test
+#        run: |
+#          aws rds describe-db-instances --db-instance-identifier mydbinstancecf
