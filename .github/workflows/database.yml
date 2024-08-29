@@ -42,7 +42,7 @@ jobs:
           terraform -chdir=infrastructure/database validate
 
   create-database:
-    name: Create artefact database
+    name: Create database
     needs:
       - security
       - test
