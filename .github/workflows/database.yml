@@ -64,14 +64,12 @@ jobs:
           terraform -chdir=infrastructure/database init
           terraform -chdir=infrastructure/database apply -var-file="production.tfvars" --auto-approve
           db_identifier=$(terraform output -raw db_identifier)
-          echo "db_identifier=${db_identifier}">> "$GITHUB_OUTPUT"
+          echo "db_identifier=$db_identifier" >> "$GITHUB_OUTPUT"
   smoke-test-database:
     name: Smoke test
     needs:
       - create-database
     runs-on: ubuntu-latest
-    outputs:
-      output1: ${{ steps.apply_terraform.outputs.db_identifier }}
     steps:
       - name: Smoke test
         env:
