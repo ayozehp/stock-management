@@ -49,4 +49,4 @@ jobs:
           terraform_wrapper: false
       - run: |
           terraform -chdir=infrastructure/registry init -backend=false
-          terraform -chdir=infrastructure/registry check
+          terraform -chdir=infrastructure/registry fmt -check
