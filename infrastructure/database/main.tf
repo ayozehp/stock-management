@@ -28,13 +28,6 @@ resource "aws_security_group" "db_sg" {
   description = "Allow MySQL traffic"
   vpc_id      = data.aws_vpc.default.id
 
-  ingress {
-    from_port       = 3306
-    to_port         = 3306
-    protocol        = "tcp"
-    security_groups = []
-  }
-
   egress {
     from_port   = 0
     to_port     = 0
