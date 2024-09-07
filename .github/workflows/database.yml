@@ -41,6 +41,20 @@ jobs:
       - run: |
           terraform -chdir=infrastructure/database init -backend=false
           terraform -chdir=infrastructure/database validate
+  format:
+    name: Check files format
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout code
+      - uses: hashicorp/setup-terraform@v3
+        name: Install Terraform
+        with:
+          terraform_version: 1.9.3
+          terraform_wrapper: false
+      - run: |
+          terraform -chdir=infrastructure/registry init -backend=false
+          terraform -chdir=infrastructure/registry check
 
   create-database:
     name: Create database
