@@ -23,7 +23,7 @@ jobs:
           file: infrastructure/registry
 
   test:
-    name: Test registry infrastructure
+    name: Test container infrastructure
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master

@@ -7,6 +7,7 @@ on:
       - 'infrastructure/**'
       - '.github/workflows/registry.yml'
       - '.github/workflows/database.yml'
+      - '.github/workflows/container.yml'
 
 env:
   SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
@@ -54,3 +55,23 @@ jobs:
         run: docker tag ayozehp/stock-management 968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management:$GITHUB_SHA
       - name: Publish image
         run: docker push 968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management:$GITHUB_SHA
+  deploy:
+    name: Deploy application
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - uses: actions/checkout@master
+      - uses: hashicorp/setup-terraform@v3
+        name: Install Terraform
+        with:
+          terraform_version: 1.9.3
+          terraform_wrapper: false
+          cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      - id: apply_terraform
+        name: Apply terraform
+        run: |
+          terraform -chdir=infrastructure/container init
+          terraform -chdir=infrastructure/container apply \
+            -var="name=stockManagement" \
+            -var="repository=968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management" \
+            -var="tag=$GITHUB_SHA"
