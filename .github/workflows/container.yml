@@ -1,0 +1,38 @@
+name: registry
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - 'infrastructure/container/**'
+      - '.github/workflows/container.yml'
+
+jobs:
+  security:
+    name: Run security checks
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+      - name: Run Snyk to check for vulnerabilities
+        uses: snyk/actions/iac@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          args: --severity-threshold=high
+          file: infrastructure/registry
+
+  test:
+    name: Test registry infrastructure
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@master
+        name: Checkout code
+      - uses: hashicorp/setup-terraform@v3
+        name: Install Terraform
+        with:
+          terraform_version: 1.9.3
+          terraform_wrapper: false
+      - run: |
+          terraform -chdir=infrastructure/registry init -backend=false
+          terraform -chdir=infrastructure/registry validate
