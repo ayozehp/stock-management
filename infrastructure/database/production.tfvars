@@ -1,1 +1,2 @@
-name = "stockManagement"
+name     = "stockManagement"
+password = "password"
