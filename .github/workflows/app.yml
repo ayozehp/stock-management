@@ -74,4 +74,5 @@ jobs:
           terraform -chdir=infrastructure/container apply \
             -var="name=stockManagement" \
             -var="repository=968153380465.dkr.ecr.eu-north-1.amazonaws.com/stock-management" \
-            -var="tag=$GITHUB_SHA"
+            -var="tag=$GITHUB_SHA" \
+            --auto-approve
