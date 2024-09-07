@@ -1,17 +1,17 @@
 resource "aws_db_instance" "app_db" {
-  allocated_storage      = 20
-  storage_type           = "gp3"
-  engine                 = "mysql"
-  engine_version         = "8.0"
-  instance_class         = "db.t4g.micro"
-  db_name                = var.name
-  username               = "admin"
-  password               = "yourpassword" # Replace with a secure password
-  parameter_group_name   = "default.mysql8.0"
-  skip_final_snapshot    = true
-  publicly_accessible    = false
-  vpc_security_group_ids = [aws_security_group.db_sg.id]
-  db_subnet_group_name   = aws_db_subnet_group.main.name
+  allocated_storage           = 20
+  storage_type                = "gp3"
+  engine                      = "mysql"
+  engine_version              = "8.0"
+  instance_class              = "db.t4g.micro"
+  db_name                     = var.name
+  username                    = "admin"
+  manage_master_user_password = true
+  parameter_group_name        = "default.mysql8.0"
+  skip_final_snapshot         = true
+  publicly_accessible         = false
+  vpc_security_group_ids      = [aws_security_group.db_sg.id]
+  db_subnet_group_name        = aws_db_subnet_group.main.name
 }
 
 resource "aws_db_subnet_group" "main" {
