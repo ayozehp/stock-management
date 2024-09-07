@@ -9,7 +9,7 @@ resource "aws_db_instance" "app_db" {
   password               = "password"
   parameter_group_name   = "default.mysql8.0"
   skip_final_snapshot    = true
-  publicly_accessible    = true
+  publicly_accessible    = false
   vpc_security_group_ids = [aws_security_group.db_sg.id]
   db_subnet_group_name   = aws_db_subnet_group.main.name
 }
