@@ -61,6 +61,7 @@ jobs:
     needs:
       - security
       - test
+      - format
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master

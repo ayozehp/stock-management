@@ -61,6 +61,7 @@ jobs:
     needs:
       - security
       - test
+      - format
     runs-on: ubuntu-latest
     outputs:
       db_identifier: ${{ steps.apply_terraform.outputs.db_identifier }}
