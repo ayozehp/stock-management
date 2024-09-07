@@ -5,8 +5,8 @@
     <session-factory>
         <property name="hibernate.dialect">org.hibernate.dialect.HSQLDialect</property>
         <property name="hibernate.connection.driver_class">com.mysql.cj.jdbc.Driver</property>
-        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/db</property>
-        <property name="hibernate.connection.username">root</property>
+        <property name="hibernate.connection.url">jdbc:mysql://terraform-20240907084807457300000001.ctuqaiq2gbck.eu-north-1.rds.amazonaws.com:3306/stockManagement</property>
+        <property name="hibernate.connection.username">admin</property>
         <property name="hibernate.connection.password">password</property>
         <mapping class="es.ayozehp.car.stock.model.User"/>
         <mapping class="es.ayozehp.car.stock.model.Product"/>
