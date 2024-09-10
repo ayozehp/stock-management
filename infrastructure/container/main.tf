@@ -26,13 +26,7 @@ resource "aws_ecs_task_definition" "app_task" {
         timeout     = 5
         retries     = 3
         startPeriod = 10
-      },
-      environment = [
-        {
-          name = "DATABASE_HOST"
-          value = "terraform-20240907084807457300000001.ctuqaiq2gbck.eu-north-1.rds.amazonaws.com"
-        }
-      ]
+      }
     }
   ])
 }
